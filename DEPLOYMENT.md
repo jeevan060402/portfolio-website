@@ -221,7 +221,7 @@ Each platform has a simple custom domain setup in their dashboard:
 
 **Solution:**
 - Verify the PDF file is in the repository
-- Check the file path in `assets/js/timeline.js`
+- Check the file path in `assets/js/data.js` (resumeFile property)
 - Ensure the filename matches exactly (case-sensitive)
 
 ### Issue: Deployment workflow failing
