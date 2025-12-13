@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maddur Jeevan Kumar Reddy - Portfolio</title>
+    <link rel="stylesheet" href="assets/css/timeline.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+            <h1 class="nav-title">Jeevan</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link active" data-section="about">About</a>
+            <a href="#experience" class="nav-link" data-section="experience">Experience</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <div class="nav-actions">
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+            <a href="#" class="nav-resume" id="resumeBtn">📄 Resume</a>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    </nav>
+
+    <main class="main-content">
+        <!-- About Section -->
+        <section class="content-section active" id="about">
+            <div class="hero-section">
+                <div class="hero-content">
+                    <h1 class="hero-name">Maddur Jeevan Kumar Reddy</h1>
+                    <p class="hero-title">Backend Engineer</p>
+                    <div class="hero-contact">
+                        <span>📧 reddyjeevan936@gmail.com</span>
+                        <span>📱 +91-9390643938</span>
+                        <span>📍 Hyderabad, India</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-content">
+                <h2>About Me</h2>
+                <p>Backend Engineer with 3+ years of experience specializing in designing, developing, and scaling distributed systems and RESTful APIs. Proven ability to optimize system performance, achieving up to a 90% increase in efficiency through automation and code refactoring.</p>
+                <p>Proficient in Python (Django, FastAPI), cloud-native technologies (AWS, Azure, Docker), and CI/CD practices. Passionate about building robust, high-availability services for modern web applications.</p>
+                
+                <div class="achievements">
+                    <h3>Key Achievements</h3>
+                    <ul>
+                        <li>🏆 Secured 34th rank in NASSCOM Machine Learning Hackathon (2021)</li>
+                        <li>🎓 B.Tech ECE with 9.3/10.0 CGPA from KLEF, KL Hyderabad</li>
+                        <li>📜 HCIA-AI (Huawei) Certified</li>
+                        <li>⚡ 90% performance improvement through automation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="content-section" id="experience">
+            <h2 class="section-title">Professional Experience</h2>
+            <div class="timeline-container">
+                <div class="timeline-line"></div>
+                <div class="timeline-content" id="timelineContent"></div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="content-section" id="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-timeline" id="skillsTimeline"></div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="content-section" id="projects">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="content-section" id="contact">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <a href="mailto:reddyjeevan936@gmail.com">reddyjeevan936@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <a href="tel:+919390643938">+91-9390643938</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <span>Hyderabad, India</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💼</div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <a href="#" target="_blank">Connect with me</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">💻</div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <a href="#" target="_blank">View my code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/timeline.js"></script>
+</body>
+</html>
