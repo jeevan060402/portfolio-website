@@ -131,11 +131,17 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Populate bento grid skills
-    const skillCategories = ['backend', 'devops', 'databases', 'languages'];
+    const skillCategories = [
+        { key: 'languages', containerId: 'languagesSkills' },
+        { key: 'backend', containerId: 'backendSkills' },
+        { key: 'databases', containerId: 'databasesSkills' },
+        { key: 'devops', containerId: 'devopsSkills' }
+    ];
+    
     skillCategories.forEach(category => {
-        const container = document.getElementById(`${category}Skills`);
-        if (container && portfolioData.skills[category]) {
-            portfolioData.skills[category].forEach((skill, index) => {
+        const container = document.getElementById(category.containerId);
+        if (container && portfolioData.skills[category.key]) {
+            portfolioData.skills[category.key].forEach((skill, index) => {
                 const tag = document.createElement('div');
                 tag.className = 'skill-tag';
                 tag.style.animationDelay = `${index * 0.1}s`;

@@ -9,31 +9,34 @@ const portfolioData = {
     },
     
     skills: {
-        backend: [
+        languages: [
             { name: "Python", icon: "fab fa-python" },
+            { name: "Java", icon: "fab fa-java" },
+            { name: "C/C++", icon: "fas fa-code" },
+            { name: "JavaScript", icon: "fab fa-js-square" },
+            { name: "SQL", icon: "fas fa-database" },
+            { name: "PHP", icon: "fab fa-php" }
+        ],
+        backend: [
             { name: "Django", icon: "fas fa-code" },
             { name: "FastAPI", icon: "fas fa-rocket" },
             { name: "Spring Boot", icon: "fas fa-leaf" },
+            { name: "Node.js", icon: "fab fa-node-js" },
             { name: "REST APIs", icon: "fas fa-exchange-alt" },
             { name: "Microservices", icon: "fas fa-cubes" }
-        ],
-        devops: [
-            { name: "AWS", icon: "fab fa-aws" },
-            { name: "Docker", icon: "fab fa-docker" },
-            { name: "Kubernetes", icon: "fas fa-dharmachakra" },
-            { name: "CI/CD", icon: "fas fa-sync-alt" },
-            { name: "Jenkins", icon: "fas fa-tools" }
         ],
         databases: [
             { name: "PostgreSQL", icon: "fas fa-database" },
             { name: "MySQL", icon: "fas fa-database" },
-            { name: "SQL", icon: "fas fa-search" }
+            { name: "Redis", icon: "fas fa-memory" }
         ],
-        languages: [
-            { name: "Java", icon: "fab fa-java" },
-            { name: "JavaScript", icon: "fab fa-js-square" },
-            { name: "PHP", icon: "fab fa-php" },
-            { name: "C/C++", icon: "fas fa-code" }
+        devops: [
+            { name: "AWS", icon: "fab fa-aws" },
+            { name: "Azure", icon: "fab fa-microsoft" },
+            { name: "Docker", icon: "fab fa-docker" },
+            { name: "Kubernetes", icon: "fas fa-dharmachakra" },
+            { name: "Jenkins", icon: "fas fa-tools" },
+            { name: "GitHub Actions", icon: "fab fa-github" }
         ]
     },
     
