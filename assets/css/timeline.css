@@ -33,7 +33,7 @@ html {
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -148,23 +148,8 @@ body {
     scroll-margin-top: 80px;
 }
 
-.content-section.active {
-    /* Keep for tab highlighting, but all sections visible */
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .hero-section {
-    min-height: 60vh;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -180,25 +165,97 @@ body {
 }
 
 .hero-name {
-    font-size: 3.5rem;
-    font-weight: 300;
+    font-size: 4rem;
+    font-weight: 700;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
+    letter-spacing: -2px;
 }
 
-.hero-title {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
+.hero-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: fadeInUp 1s ease 0.2s both;
 }
 
-.hero-contact {
+.typing-text {
+    border-right: 2px solid white;
+    padding-right: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { border-color: white; }
+    51%, 100% { border-color: transparent; }
+}
+
+.hero-social {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     justify-content: center;
-    flex-wrap: wrap;
+    margin-bottom: 3rem;
     animation: fadeInUp 1s ease 0.4s both;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-btn:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-3px);
+}
+
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.cta-primary, .cta-secondary {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.cta-primary {
+    background: white;
+    color: var(--primary-color);
+}
+
+.cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.cta-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-secondary:hover {
+    background: white;
+    color: var(--primary-color);
 }
 
 @keyframes fadeInUp {
@@ -360,47 +417,67 @@ body {
     line-height: 1.6;
 }
 
-.skills-timeline {
+/* Modern Bento Grid Skills */
+.skills-bento {
     max-width: 1000px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.skill-card {
+.skill-category {
     background: var(--card-bg);
-    color: var(--text-color);
     padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    transform: translateY(20px);
-    opacity: 0;
-    transition: all 0.6s ease;
+    border-radius: 20px;
     box-shadow: var(--shadow);
+    transition: all 0.3s ease;
 }
 
-.skill-card.animate {
-    transform: translateY(0);
-    opacity: 1;
-}
-
-.skill-card:hover {
+.skill-category:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
 }
 
-.skill-name {
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+.skill-category h3 {
     color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.skill-level {
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--text-color);
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.skill-tag {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    transform: scale(0);
+    animation: popIn 0.4s ease forwards;
+}
+
+.skill-tag:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+@keyframes popIn {
+    to {
+        transform: scale(1);
+    }
 }
 
 .projects-grid {
@@ -509,6 +586,7 @@ body {
     color: var(--primary-color);
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
     .navbar {
         padding: 1rem;
@@ -542,25 +620,43 @@ body {
         font-size: 2.5rem;
     }
     
-    .hero-contact {
-        flex-direction: column;
-        gap: 0.5rem;
+    .hero-subtitle {
+        font-size: 1.3rem;
     }
     
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-social {
+        gap: 0.75rem;
+    }
+    
+    .social-btn {
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Fixed Mobile Timeline */
     .timeline-line {
-        left: 2rem;
+        left: 1.5rem;
     }
     
     .timeline-item:nth-child(odd) .timeline-content-box,
     .timeline-item:nth-child(even) .timeline-content-box {
-        margin-left: 4rem;
+        margin-left: 3.5rem;
         margin-right: 0;
-        padding-left: 1rem;
+        padding-left: 1.5rem;
         padding-right: 1rem;
     }
     
     .timeline-dot {
-        left: 2rem;
+        left: 1.5rem;
+    }
+    
+    .timeline-item {
+        margin: 2.5rem 0;
     }
     
     .content-section {
@@ -569,9 +665,15 @@ body {
     
     .hero-section {
         margin: -1rem -1rem 2rem -1rem;
+        min-height: 70vh;
     }
     
     .contact-info {
         grid-template-columns: 1fr;
+    }
+    
+    .skills-bento {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }

@@ -8,18 +8,34 @@ const portfolioData = {
         resumeFile: "Jeevan_Resume_2112025.pdf"
     },
     
-    skills: [
-        { name: "Python", level: 95 },
-        { name: "Django", level: 90 },
-        { name: "FastAPI", level: 85 },
-        { name: "AWS", level: 80 },
-        { name: "Docker", level: 75 },
-        { name: "Java", level: 70 },
-        { name: "Spring Boot", level: 70 },
-        { name: "PostgreSQL", level: 75 },
-        { name: "Microservices", level: 85 },
-        { name: "REST APIs", level: 90 }
-    ],
+    skills: {
+        backend: [
+            { name: "Python", icon: "fab fa-python" },
+            { name: "Django", icon: "fas fa-code" },
+            { name: "FastAPI", icon: "fas fa-rocket" },
+            { name: "Spring Boot", icon: "fas fa-leaf" },
+            { name: "REST APIs", icon: "fas fa-exchange-alt" },
+            { name: "Microservices", icon: "fas fa-cubes" }
+        ],
+        devops: [
+            { name: "AWS", icon: "fab fa-aws" },
+            { name: "Docker", icon: "fab fa-docker" },
+            { name: "Kubernetes", icon: "fas fa-dharmachakra" },
+            { name: "CI/CD", icon: "fas fa-sync-alt" },
+            { name: "Jenkins", icon: "fas fa-tools" }
+        ],
+        databases: [
+            { name: "PostgreSQL", icon: "fas fa-database" },
+            { name: "MySQL", icon: "fas fa-database" },
+            { name: "SQL", icon: "fas fa-search" }
+        ],
+        languages: [
+            { name: "Java", icon: "fab fa-java" },
+            { name: "JavaScript", icon: "fab fa-js-square" },
+            { name: "PHP", icon: "fab fa-php" },
+            { name: "C/C++", icon: "fas fa-code" }
+        ]
+    },
     
     experience: [
         {

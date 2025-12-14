@@ -1,4 +1,38 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Typing animation for hero subtitle
+    const typingText = document.getElementById('typingText');
+    const titles = ['Backend Engineer', 'System Architect', 'Python Expert'];
+    let currentIndex = 0;
+    let currentText = '';
+    let isDeleting = false;
+    
+    function typeWriter() {
+        const fullText = titles[currentIndex];
+        
+        if (isDeleting) {
+            currentText = fullText.substring(0, currentText.length - 1);
+        } else {
+            currentText = fullText.substring(0, currentText.length + 1);
+        }
+        
+        typingText.textContent = currentText;
+        
+        let typeSpeed = isDeleting ? 100 : 150;
+        
+        if (!isDeleting && currentText === fullText) {
+            typeSpeed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && currentText === '') {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % titles.length;
+            typeSpeed = 500;
+        }
+        
+        setTimeout(typeWriter, typeSpeed);
+    }
+    
+    setTimeout(typeWriter, 1000);
+
     // Theme management
     const themeToggle = document.getElementById('themeToggle');
     const currentTheme = localStorage.getItem('theme') || 'light';
@@ -57,6 +91,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // CTA button functionality
+    document.querySelector('.cta-primary').addEventListener('click', function(e) {
+        e.preventDefault();
+        const sectionId = this.dataset.section;
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            
+            // Update active nav
+            navLinksElements.forEach(nav => nav.classList.remove('active'));
+            const activeNav = document.querySelector(`[data-section="${sectionId}"]`);
+            if (activeNav) {
+                activeNav.classList.add('active');
+            }
+        }
+    });
+
     // Populate timeline (experience section)
     const timelineContent = document.getElementById('timelineContent');
     if (timelineContent) {
@@ -76,19 +130,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Populate skills
-    const skillsTimeline = document.getElementById('skillsTimeline');
-    if (skillsTimeline) {
-        portfolioData.skills.forEach((skill, index) => {
-            const card = document.createElement('div');
-            card.className = 'skill-card';
-            card.innerHTML = `
-                <div class="skill-name">${skill.name}</div>
-                <div class="skill-level">${skill.level}%</div>
-            `;
-            skillsTimeline.appendChild(card);
-        });
-    }
+    // Populate bento grid skills
+    const skillCategories = ['backend', 'devops', 'databases', 'languages'];
+    skillCategories.forEach(category => {
+        const container = document.getElementById(`${category}Skills`);
+        if (container && portfolioData.skills[category]) {
+            portfolioData.skills[category].forEach((skill, index) => {
+                const tag = document.createElement('div');
+                tag.className = 'skill-tag';
+                tag.style.animationDelay = `${index * 0.1}s`;
+                tag.innerHTML = `
+                    <i class="${skill.icon}"></i>
+                    <span>${skill.name}</span>
+                `;
+                container.appendChild(tag);
+            });
+        }
+    });
 
     // Populate projects
     const projectsGrid = document.getElementById('projectsGrid');
@@ -109,15 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Intersection Observer for animations
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate');
-            }
-        });
-    }, { threshold: 0.1 });
-
     // Function to trigger animations for specific sections
     function triggerSectionAnimations(sectionId) {
         setTimeout(() => {
@@ -130,15 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => {
                         item.classList.add('animate');
                     }, index * 200);
-                });
-            }
-
-            // Animate skill cards
-            if (sectionId === 'skills') {
-                section.querySelectorAll('.skill-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('animate');
-                    }, index * 100);
                 });
             }
 
@@ -157,7 +197,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(() => {
         triggerSectionAnimations('about');
         triggerSectionAnimations('experience');
-        triggerSectionAnimations('skills');
         triggerSectionAnimations('projects');
     }, 500);
 
@@ -188,6 +227,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Resume download
     document.getElementById('resumeBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.open(portfolioData.personal.resumeFile, '_blank');
+    });
+
+    document.getElementById('heroResumeBtn').addEventListener('click', function(e) {
         e.preventDefault();
         window.open(portfolioData.personal.resumeFile, '_blank');
     });

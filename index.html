@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maddur Jeevan Kumar Reddy - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/timeline.css">
 </head>
 <body>
@@ -31,11 +32,28 @@
             <div class="hero-section">
                 <div class="hero-content">
                     <h1 class="hero-name">Maddur Jeevan Kumar Reddy</h1>
-                    <p class="hero-title">Backend Engineer</p>
-                    <div class="hero-contact">
-                        <span>📧 reddyjeevan936@gmail.com</span>
-                        <span>📱 +91-9390643938</span>
-                        <span>📍 Hyderabad, India</span>
+                    <div class="hero-subtitle">
+                        <span class="typing-text" id="typingText">Backend Engineer</span>
+                    </div>
+                    
+                    <div class="hero-social">
+                        <a href="mailto:reddyjeevan936@gmail.com" class="social-btn" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-btn" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="tel:+919390643938" class="social-btn" aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="hero-cta">
+                        <a href="#projects" class="cta-primary" data-section="projects">View Projects</a>
+                        <a href="#" class="cta-secondary" id="heroResumeBtn">Resume</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +87,24 @@
         <!-- Skills Section -->
         <section class="content-section" id="skills">
             <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-timeline" id="skillsTimeline"></div>
+            <div class="skills-bento" id="skillsBento">
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-tags" id="backendSkills"></div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> DevOps</h3>
+                    <div class="skill-tags" id="devopsSkills"></div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Databases</h3>
+                    <div class="skill-tags" id="databaseSkills"></div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Languages</h3>
+                    <div class="skill-tags" id="languageSkills"></div>
+                </div>
+            </div>
         </section>
 
         <!-- Projects Section -->
