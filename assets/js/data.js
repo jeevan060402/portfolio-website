@@ -5,7 +5,7 @@ const portfolioData = {
         email: "reddyjeevan936@gmail.com",
         phone: "+91-9390643938",
         location: "Hyderabad, India",
-        resumeFile: "Jeevan_Resume_2112025.pdf"
+        resumeFile: "Jeevan_Resume_14122025.pdf"
     },
     
     skills: {

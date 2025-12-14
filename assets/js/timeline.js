@@ -307,19 +307,57 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollObserver.observe(section);
         });
 
-        // Resume download with error handling
+        // Resume download with enhanced error handling
         function handleResumeDownload(e) {
             e.preventDefault();
             try {
-                const resumeUrl = portfolioData?.personal?.resumeFile || 'Jeevan_Resume_2112025.pdf';
-                window.open(resumeUrl, '_blank');
+                const resumeUrl = portfolioData?.personal?.resumeFile || 'Jeevan_Resume_14122025.pdf';
+                console.log('Attempting to download resume:', resumeUrl);
+                
+                // Check if file exists by creating a test link
+                const link = document.createElement('a');
+                link.href = resumeUrl;
+                link.download = resumeUrl;
+                link.target = '_blank';
+                
+                // Add to DOM, click, and remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                console.log('Resume download initiated successfully');
             } catch (error) {
-                ErrorHandler.show('Sorry, the resume file is currently unavailable. Please contact me directly.');
+                console.error('Resume download error:', error);
+                ErrorHandler.show('Sorry, the resume file is currently unavailable. Please contact me directly at reddyjeevan936@gmail.com');
             }
         }
 
+        // Add click feedback to resume buttons
+        function addResumeClickFeedback(button) {
+            if (!button) return;
+            
+            button.addEventListener('click', function(e) {
+                // Visual feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+                
+                // Show downloading message
+                const originalText = this.textContent;
+                this.textContent = 'Downloading...';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            });
+        }
+
+        // Apply to all resume buttons
         document.getElementById('resumeBtn')?.addEventListener('click', handleResumeDownload);
         document.getElementById('heroResumeBtn')?.addEventListener('click', handleResumeDownload);
+        
+        addResumeClickFeedback(document.getElementById('resumeBtn'));
+        addResumeClickFeedback(document.getElementById('heroResumeBtn'));
 
         // Error modal handling
         const errorModal = document.getElementById('errorModal');
