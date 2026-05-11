@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Backend-focused typing animation
         const typingText = document.getElementById('typingText');
         if (typingText) {
-            const titles = ['Backend Engineer', 'Python Expert', 'System Architect', 'DevOps Engineer', 'Microservices Developer'];
+            const titles = ['Backend Engineer', 'Python Expert', 'Cloud-Native Dev', 'DevOps Engineer', 'Microservices Architect'];
             let currentIndex = 0;
             let currentText = '';
             let isDeleting = false;
@@ -177,6 +177,22 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
+        // Populate metrics strip
+        const metricsStrip = document.getElementById('metricsStrip');
+        if (metricsStrip && portfolioData?.metrics) {
+            portfolioData.metrics.forEach(metric => {
+                const item = document.createElement('div');
+                item.className = 'metric-item';
+                item.setAttribute('role', 'listitem');
+                item.innerHTML = `
+                    <div class="metric-icon" aria-hidden="true">${metric.icon}</div>
+                    <div class="metric-value">${metric.value}</div>
+                    <div class="metric-label">${metric.label}</div>
+                `;
+                metricsStrip.appendChild(item);
+            });
+        }
+
         // Populate timeline (experience section)
         const timelineContent = document.getElementById('timelineContent');
         if (timelineContent && portfolioData?.experience) {
@@ -184,13 +200,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 const item = document.createElement('div');
                 item.className = 'timeline-item';
                 item.setAttribute('role', 'listitem');
+
+                const bulletsHtml = exp.bullets
+                    ? `<ul class="timeline-bullets">${exp.bullets.map(b => `<li>${b}</li>`).join('')}</ul>`
+                    : `<div class="timeline-desc">${exp.description || ''}</div>`;
+
                 item.innerHTML = `
                     <div class="timeline-dot"></div>
                     <div class="timeline-content-box">
-                        <div class="timeline-title">${exp.title}</div>
-                        <div class="timeline-company">${exp.company}</div>
+                        <div class="timeline-title">${exp.title}${exp.subtitle ? ` <span class="timeline-subtitle">— ${exp.subtitle}</span>` : ''}</div>
+                        <div class="timeline-company">${exp.company}${exp.location ? ` · ${exp.location}` : ''}</div>
                         <div class="timeline-period">${exp.period}</div>
-                        <div class="timeline-desc">${exp.description}</div>
+                        ${bulletsHtml}
                     </div>
                 `;
                 timelineContent.appendChild(item);
@@ -199,10 +220,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Populate bento grid skills
         const skillCategories = [
-            { key: 'languages', containerId: 'languagesSkills' },
             { key: 'backend', containerId: 'backendSkills' },
-            { key: 'databases', containerId: 'databasesSkills' },
-            { key: 'devops', containerId: 'devopsSkills' }
+            { key: 'cloudDevops', containerId: 'cloudDevopsSkills' },
+            { key: 'observability', containerId: 'observabilitySkills' },
+            { key: 'practices', containerId: 'practicesSkills' }
         ];
         
         skillCategories.forEach(category => {
@@ -229,6 +250,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const card = document.createElement('div');
                 card.className = 'project-card';
                 card.setAttribute('role', 'listitem');
+                const linkHtml = project.link
+                    ? `<a href="${project.link}" target="_blank" rel="noopener" class="project-link">${project.linkLabel || 'View Project'} →</a>`
+                    : '';
                 card.innerHTML = `
                     <div class="project-header">
                         <div class="project-name">${project.name}</div>
@@ -237,6 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="project-body">
                         <div class="project-desc">${project.description}</div>
                         ${project.metrics ? `<div class="project-metrics">${project.metrics}</div>` : ''}
+                        ${linkHtml}
                     </div>
                 `;
                 projectsGrid.appendChild(card);
