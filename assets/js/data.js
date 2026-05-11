@@ -27,7 +27,8 @@ const portfolioData = {
             { name: "REST APIs", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swagger/swagger-original.svg" },
             { name: "PostgreSQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
             { name: "Redis", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" }
+            { name: "MySQL", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+            { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
         ],
         cloudDevops: [
             { name: "AWS", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" },
@@ -49,9 +50,8 @@ const portfolioData = {
             { name: "Microservices", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
             { name: "CI/CD", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
             { name: "System Design", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg" },
-            { name: "Multi-tenancy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-            { name: "Agile / Scrum", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg" },
-            { name: "Java", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" }
+            { name: "Multi-tenancy", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+            { name: "Agile / Scrum", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain.svg" }
         ]
     },
 
@@ -63,7 +63,7 @@ const portfolioData = {
             location: "Nashik, India",
             period: "July 2025 – Present",
             bullets: [
-                "Built and published <a href='https://pypi.org/project/setu-trafficmonitor/2.0.1/' target='_blank' rel='noopener'><strong>setu-trafficmonitor</strong></a>, an open-source Python package for real-time ingress/egress traffic monitoring, currently used across production microservices.",
+                "Built and published <a href='https://pypi.org/project/setu-trafficmonitor/' target='_blank' rel='noopener'><strong>setu-trafficmonitor</strong></a>, an open-source Python package for real-time ingress/egress traffic monitoring, currently used across production microservices.",
                 "Designed and deployed scalable backend services using <strong>Django</strong> and <strong>FastAPI</strong> for a high-traffic agri-food platform serving thousands of active users.",
                 "Reduced PostgreSQL query execution time by <strong>25%</strong> through indexing strategies, query refactoring, and Postgres <code>EXPLAIN ANALYZE</code>.",
                 "Orchestrated trade and logistics microservices on <strong>Kubernetes (K8s)</strong>, managing rolling deployments, service discovery, and horizontal pod autoscaling.",
@@ -130,7 +130,7 @@ const portfolioData = {
             tech: "Python · Django · PyPI",
             description: "Open-source middleware package for real-time HTTP ingress/egress traffic monitoring. Currently deployed in production across all microservices at FarmSetu Technologies.",
             metrics: "Production-deployed · PyPI published · Open-source",
-            link: "https://pypi.org/project/setu-trafficmonitor/2.0.1/",
+            link: "https://pypi.org/project/setu-trafficmonitor/",
             linkLabel: "View on PyPI"
         },
         {
